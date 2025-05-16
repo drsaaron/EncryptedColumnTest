@@ -68,7 +68,7 @@ public class ListRawDataCommandLineRunner implements CommandLineRunner {
         return v;
     }
     
-    private RowMapper<PersonView> personViewRowMapper = (rs, rowId) -> mapRow(rs, rowId);
+    private final RowMapper<PersonView> personViewRowMapper = (rs, rowId) -> mapRow(rs, rowId);
     
     @Override
     public void run(String... args) throws Exception {
