@@ -42,19 +42,19 @@ def encryptName(personName):
     return encrypted
 
 def getUserPassword(dbUser):
-    cmd = "pass database/local-mysql/" + dbUser
+    cmd = "pass Database/MySQL/local/" + dbUser
     process = subprocess.Popen(cmd, stdout=subprocess.PIPE, stderr=subprocess.PIPE, shell=True, text=True)
     output, error = process.communicate()
     return output.rstrip()
 
 # connect to the DB
-dbUser = "aar1069"
+dbUser = "scott"
 dbPassword = getUserPassword(dbUser)
 mydb = mysql.connector.connect(
   host="localhost",
   user=dbUser,
   password=dbPassword,
-  database="EncryptColumnTest"
+  database="EncryptedColumnTest"
 )
 
 cursor = mydb.cursor()

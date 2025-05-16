@@ -5,7 +5,9 @@
  */
 package com.blazartech.encryptedcolumntest.config;
 
+import com.blazartech.products.crypto.BlazarCryptoFile;
 import javax.sql.DataSource;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -18,6 +20,9 @@ import org.springframework.jdbc.datasource.DriverManagerDataSource;
  */
 @Configuration
 public class DataSourceConfiguration {
+    
+    @Autowired
+    private BlazarCryptoFile cryptoFile;
     
     @Value("${application.dataSource.userid}")
     private String userid;
@@ -39,7 +44,7 @@ public class DataSourceConfiguration {
         ds.setDriverClassName(driverClass);
         ds.setUrl(url);
         ds.setUsername(userid);
-        ds.setPassword(resourceID);
+        ds.setPassword(cryptoFile.getPassword(userid, resourceID));
         return ds;
     }
 

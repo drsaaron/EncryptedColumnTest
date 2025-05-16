@@ -35,6 +35,10 @@ public class TestEncryptedColumnCommandLineRunner implements CommandLineRunner {
     public void run(String... args) throws Exception {
         logger.info("starting test");
 
+        // read all data
+        Iterable<PersonData> people = personRepo.findAll();
+        StreamSupport.stream(people.spliterator(), false).forEach(person -> logger.info("found existing person {}", person));
+
         // start by clearing the table.
         personRepo.deleteAll();
 
@@ -59,10 +63,6 @@ public class TestEncryptedColumnCommandLineRunner implements CommandLineRunner {
         // read.
         Optional<PersonData> readPerson = personRepo.findById(p.getPersonId());
         logger.info("read person {} ", readPerson.get());
-
-        // read all data
-        Iterable<PersonData> people = personRepo.findAll();
-        StreamSupport.stream(people.spliterator(), false).forEach(person -> logger.info("found existing person {}", person));
     }
 
 }

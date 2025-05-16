@@ -3,7 +3,7 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>com.blazartech</groupId>
     <artifactId>EncryptedColumnTest</artifactId>
-    <version>1.12-SNAPSHOT</version>
+    <version>1.13-SNAPSHOT</version>
     <packaging>jar</packaging>
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -56,8 +56,14 @@
         </dependency>
         
         <dependency>
-            <groupId>com.h2database</groupId>
-            <artifactId>h2</artifactId>
+            <groupId>com.mysql</groupId>
+            <artifactId>mysql-connector-j</artifactId>
+        </dependency>
+        
+        <dependency>
+            <groupId>com.blazartech</groupId>
+            <artifactId>BlazarCryptoFile-mvn</artifactId>
+            <version>1.55-RELEASE</version>
         </dependency>
         
         <dependency>
