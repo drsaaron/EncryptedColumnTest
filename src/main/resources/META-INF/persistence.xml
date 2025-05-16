@@ -6,7 +6,6 @@
     <!-- need to include for eclipselink, hibernate doesn't seem to care -->
     <class>com.blazartech.encryptedcolumntest.data.PersonData</class>
     <properties>
-      <property name="jakarta.persistence.schema-generation.database.action" value="create"/>
     </properties>
   </persistence-unit>
 </persistence>
