@@ -7,10 +7,10 @@ package com.blazartech.encryptedcolumntest.data;
 
 import jakarta.persistence.AttributeConverter;
 import jakarta.persistence.Converter;
-import org.apache.commons.lang3.concurrent.ConcurrentException;
 import org.apache.commons.lang3.concurrent.LazyInitializer;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.util.function.ThrowingFunction;
 
 /**
  * @see https://thoughts-on-java.org/how-to-use-jpa-type-converter-to/ This will
@@ -33,25 +33,29 @@ public class CryptoConverterProxy extends LazyInitializer<AttributeConverter<Str
     @Override
     protected AttributeConverter<String, String> initialize() {
         log.info("initializing implementation");
-        return AppContext.getBean("cryptoConverterImpl", AttributeConverter.class);
+        return AppContext.getBean("cryptoConverterImpl", CryptoConverterImpl.class);
     }
 
+    /**
+     * wrap the conversion calls in a ThrowingFunction to automatically handle
+     * the ConcurrentException that each can throw.
+     * 
+     * @param converter
+     * @param s
+     * @return 
+     */
+    private String convert(ThrowingFunction<String, String> converter, String s) {
+        return converter.apply(s);
+    }
+    
     @Override
     public String convertToDatabaseColumn(String ccNumber) {
-        try {
-            return get().convertToDatabaseColumn(ccNumber);
-        } catch (ConcurrentException e) {
-            throw new RuntimeException(e);
-        }
+        return convert(s -> get().convertToDatabaseColumn(s), ccNumber);
     }
 
     @Override
     public String convertToEntityAttribute(String dbData) {
-        try {
-            return get().convertToEntityAttribute(dbData);
-        } catch (ConcurrentException e) {
-            throw new RuntimeException(e);
-        }
+        return convert(s -> get().convertToEntityAttribute(s), dbData);
     }
 
 }
