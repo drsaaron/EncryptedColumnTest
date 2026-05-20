@@ -44,7 +44,7 @@ public class PersonData implements Serializable {
     
     @Basic(optional = false)
     @NotNull
-    @Size(min = 1, max = 25)
+    @Size(min = 1, max = 50)
     @Column(name = "Name")
     @Convert(converter = CryptoConverterProxy.class) // see https://www.baeldung.com/jpa-attribute-converters
     private String name;
