@@ -5,7 +5,6 @@
 package com.blazartech.encryptedcolumntest.data;
 
 import com.blazartech.enumwithdbvaluebacking.EnumWithDBValueBackingConverter;
-import jakarta.persistence.AttributeConverter;
 import jakarta.persistence.Converter;
 
 /**
@@ -13,7 +12,7 @@ import jakarta.persistence.Converter;
  * @author scott
  */
 @Converter(autoApply = true)
-public class GenderConverter extends EnumWithDBValueBackingConverter<Gender, String> implements AttributeConverter<Gender, String> {
+public class GenderConverter extends EnumWithDBValueBackingConverter<Gender, String> {
 
     public GenderConverter() {
         super(Gender.class);
