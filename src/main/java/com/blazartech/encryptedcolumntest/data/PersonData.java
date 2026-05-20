@@ -19,12 +19,14 @@ import jakarta.persistence.Table;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
 import jakarta.xml.bind.annotation.XmlRootElement;
+import lombok.Data;
 
 /**
  *
  * @author AAR1069
  */
 @Entity
+@Data
 @Table(name = "Person")
 @XmlRootElement
 @NamedQueries({
@@ -46,58 +48,10 @@ public class PersonData implements Serializable {
     @Column(name = "Name")
     @Convert(converter = CryptoConverterProxy.class) // see https://www.baeldung.com/jpa-attribute-converters
     private String name;
-
-    public PersonData() {
-    }
-
-    public PersonData(Long personId) {
-        this.personId = personId;
-    }
-
-    public PersonData(Long personId, String name) {
-        this.personId = personId;
-        this.name = name;
-    }
-
-    public Long getPersonId() {
-        return personId;
-    }
-
-    public void setPersonId(Long personId) {
-        this.personId = personId;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    @Override
-    public int hashCode() {
-        int hash = 0;
-        hash += (personId != null ? personId.hashCode() : 0);
-        return hash;
-    }
-
-    @Override
-    public boolean equals(Object object) {
-        // TODO: Warning - this method won't work in the case the id fields are not set
-        if (!(object instanceof PersonData)) {
-            return false;
-        }
-        PersonData other = (PersonData) object;
-        if ((this.personId == null && other.personId != null) || (this.personId != null && !this.personId.equals(other.personId))) {
-            return false;
-        }
-        return true;
-    }
-
-    @Override
-    public String toString() {
-        return "PersonData{" + "personId=" + personId + ", name=" + name + '}';
-    }
+    
+    @Basic(optional = false)
+    @NotNull
+    @Column(name = "Gender")
+    private Gender gender;
     
 }

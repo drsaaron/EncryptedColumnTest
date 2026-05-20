@@ -69,8 +69,8 @@ def addPerson(personName):
     insertCursor = mydb.cursor()
     encryptedNameText = encryptName(personName)
     print("encrypted name = " + encryptedNameText)
-    sql = "insert into Person (Name) values (%s)"
-    args = [encryptedNameText]
+    sql = "insert into Person (Name, Gender) values (%s, %s)"
+    args = [encryptedNameText, 'N']
     insertCursor.execute(sql, args)
     mydb.commit() 
     print("inserted person with ID " + str(insertCursor.lastrowid))

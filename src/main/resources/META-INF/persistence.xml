@@ -3,6 +3,7 @@
   <persistence-unit name="com.blazartech_EncryptedColumnTest_jar_1.0-SNAPSHOTPU" transaction-type="RESOURCE_LOCAL">
     <provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
     <class>com.blazartech.encryptedcolumntest.data.CryptoConverterProxy</class>
+    <class>com.blazartech.encryptedcolumntest.data.GenderConverter</class>
     <!-- need to include for eclipselink, hibernate doesn't seem to care -->
     <class>com.blazartech.encryptedcolumntest.data.PersonData</class>
     <properties>

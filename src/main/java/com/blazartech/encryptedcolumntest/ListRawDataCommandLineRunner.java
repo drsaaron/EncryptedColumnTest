@@ -35,13 +35,15 @@ public class ListRawDataCommandLineRunner implements CommandLineRunner {
     @Data
     private static final class PersonView {
         private long id;
-        private String name;        
+        private String name;       
+        private String gender;
     }
     
     private PersonView mapRow(ResultSet rs, int rowId) throws SQLException {
         PersonView v = new PersonView();
         v.setId(rs.getLong("PersonId"));
         v.setName(rs.getString("Name"));
+        v.setGender(rs.getString("Gender"));
         return v;
     }
     

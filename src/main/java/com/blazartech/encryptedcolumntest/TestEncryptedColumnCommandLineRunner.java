@@ -5,6 +5,7 @@
  */
 package com.blazartech.encryptedcolumntest;
 
+import com.blazartech.encryptedcolumntest.data.Gender;
 import com.blazartech.encryptedcolumntest.data.PersonData;
 import com.blazartech.encryptedcolumntest.data.repos.PersonDataRepository;
 import java.util.Optional;
@@ -45,6 +46,7 @@ public class TestEncryptedColumnCommandLineRunner implements CommandLineRunner {
         // create a fake person 
         PersonData p = new PersonData();
         p.setName("Scott Aaron");
+        p.setGender(Gender.Male);
 
         // save.  use flush to ensure data are saved and ID populated as it will
         // be used later. hibernate seems to do that even with save, but eclipselink
@@ -58,6 +60,7 @@ public class TestEncryptedColumnCommandLineRunner implements CommandLineRunner {
         // just use save
         PersonData p2 = new PersonData();
         p2.setName("Henrietta Schmoop");
+        p2.setGender(Gender.Female);
         personRepo.save(p2);
 
         // read.
