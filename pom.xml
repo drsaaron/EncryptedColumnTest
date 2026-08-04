@@ -3,7 +3,7 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>com.blazartech</groupId>
     <artifactId>EncryptedColumnTest</artifactId>
-    <version>1.19-SNAPSHOT</version>
+    <version>1.20-SNAPSHOT</version>
     <packaging>jar</packaging>
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -30,7 +30,7 @@
     <parent>
         <groupId>com.blazartech</groupId>
         <artifactId>blazarjavaparent</artifactId>
-        <version>1.22-RELEASE</version>
+        <version>1.25-RELEASE</version>
     </parent>
     
     <dependencies>
@@ -52,7 +52,7 @@
         <dependency>
             <groupId>org.eclipse.persistence</groupId>
             <artifactId>eclipselink</artifactId>
-            <version>5.0.0</version>
+            <version>5.0.1</version>
         </dependency>
         
         <dependency>
@@ -68,13 +68,13 @@
         <dependency>
             <groupId>com.blazartech</groupId>
             <artifactId>BlazarCryptoFile-mvn</artifactId>
-            <version>1.67-RELEASE</version>
+            <version>1.69-RELEASE</version>
         </dependency>
         
         <dependency>
             <groupId>org.apache.bval</groupId>
             <artifactId>bval-jsr</artifactId>
-            <version>3.0.2</version>
+            <version>3.1.0</version>
         </dependency> 
         
         <dependency>
@@ -105,7 +105,7 @@
         <dependency>
             <groupId>com.blazartech</groupId>
             <artifactId>EnumWithDBValueBacking</artifactId>
-            <version>1.1-RELEASE</version>
+            <version>1.5-RELEASE</version>
         </dependency>
         
         <dependency>
