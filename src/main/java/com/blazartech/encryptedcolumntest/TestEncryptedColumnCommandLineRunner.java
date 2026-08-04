@@ -47,6 +47,7 @@ public class TestEncryptedColumnCommandLineRunner implements CommandLineRunner {
         PersonData p = new PersonData();
         p.setName("Scott Aaron");
         p.setGender(Gender.Male);
+        p.setNickName("Doc");
 
         // save.  use flush to ensure data are saved and ID populated as it will
         // be used later. hibernate seems to do that even with save, but eclipselink
@@ -61,6 +62,7 @@ public class TestEncryptedColumnCommandLineRunner implements CommandLineRunner {
         PersonData p2 = new PersonData();
         p2.setName("Henrietta Schmoop");
         p2.setGender(Gender.Female);
+        p2.setNickName("hen");
         personRepo.save(p2);
 
         // read.

@@ -55,4 +55,8 @@ public class PersonData implements Serializable {
     @Convert(converter = GenderConverter.class)  // using the generic converter for some reason I have to explicitly assign
     private Gender gender;
     
+    @Basic(optional = true) 
+    @Column(name = "NickName")
+    private String nickName;
+    
 }

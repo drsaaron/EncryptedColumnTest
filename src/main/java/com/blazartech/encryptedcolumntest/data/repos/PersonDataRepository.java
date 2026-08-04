@@ -20,4 +20,6 @@ import org.springframework.data.rest.core.annotation.RepositoryRestResource;
 public interface PersonDataRepository extends JpaRepository<PersonData, Long>, JpaSpecificationExecutor<PersonData> {
     
     public Collection<PersonData> findByGender(Gender g);
+    
+    public Collection<PersonData> findByNickNameContains(String substring);
 }

@@ -65,20 +65,22 @@ for p in result:
     print("person " + str(p[0]) + " name = " + decryptName(p))
 
 # insert a new person
-def addPerson(personName):
+def addPerson(personName, gender, nickname):
     insertCursor = mydb.cursor()
     encryptedNameText = encryptName(personName)
     print("encrypted name = " + encryptedNameText)
-    sql = "insert into Person (Name, Gender) values (%s, %s)"
-    args = [encryptedNameText, 'N']
+    sql = "insert into Person (Name, Gender, NickName) values (%s, %s, %s)"
+    args = [encryptedNameText, gender, nickname]
     insertCursor.execute(sql, args)
     mydb.commit() 
     print("inserted person with ID " + str(insertCursor.lastrowid))
 
-addPerson("Eddie van Halen")
-addPerson("Alex van Halen")
-addPerson("Michael Anthony")
-addPerson("David Lee Roth")
-addPerson("Sammy Hagar")
-addPerson("Gary Cherone")
+addPerson("Eddie van Halen", "M", "EVH")
+addPerson("Alex van Halen", "M", "AVH")
+addPerson("Michael Anthony", "M", "Mad Bass Man")
+addPerson("David Lee Roth", "M", "DLR")
+addPerson("Sammy Hagar", "M", "Red Rocker")
+addPerson("Gary Cherone", "M", None)
+addPerson("Catherine, Princess of Wales", "F", "Her Royal Highness")
+
 
