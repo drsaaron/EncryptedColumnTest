@@ -3,7 +3,7 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>com.blazartech</groupId>
     <artifactId>EncryptedColumnTest</artifactId>
-    <version>1.22-SNAPSHOT</version>
+    <version>1.23-SNAPSHOT</version>
     <packaging>jar</packaging>
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -30,7 +30,7 @@
     <parent>
         <groupId>com.blazartech</groupId>
         <artifactId>blazarjavaparent</artifactId>
-        <version>1.27-RELEASE</version>
+        <version>1.28-RELEASE</version>
     </parent>
     
     <dependencies>
@@ -98,14 +98,9 @@
         </dependency>
         
         <dependency>
-            <groupId>org.projectlombok</groupId>
-            <artifactId>lombok</artifactId>
-        </dependency>
-        
-        <dependency>
             <groupId>com.blazartech</groupId>
             <artifactId>EnumWithDBValueBacking</artifactId>
-            <version>1.6-RELEASE</version>
+            <version>1.7-RELEASE</version>
         </dependency>
         
         <dependency>
